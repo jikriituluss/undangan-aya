@@ -1,0 +1,1713 @@
+/* ===================== RESET & BASE ===================== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --cream: #F5EDE4;
+  --coklat-susu: #C4956A;
+  --coklat-muda: #CAAA8A;
+  --coklat-tua: #A67B56;
+  --gold: #D4A373;
+  --white: #FFFFFF;
+  --dark: #1A1410;
+  --overlay: rgba(0, 0, 0, 0.50);
+  --overlay-light: rgba(0, 0, 0, 0.25);
+  --glass-bg: rgba(26, 20, 16, 0.60);
+  --glass-border: rgba(196, 149, 106, 0.20);
+  --glass-blur: blur(16px);
+  --font-heading: 'Great Vibes', 'Playfair Display', serif;
+  --font-body: 'Playfair Display', 'Poppins', serif;
+  --font-sans: 'Poppins', sans-serif;
+  --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+  --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.20);
+  --radius: 12px;
+  --radius-lg: 20px;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  color: #F0E8DE;
+  background: var(--dark);
+  line-height: 1.8;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; outline: none; font-family: inherit; }
+img { max-width: 100%; display: block; }
+input, textarea, select { font-family: inherit; }
+
+::selection {
+  background: var(--coklat-susu);
+  color: var(--white);
+}
+
+/* ===================== LOADING SCREEN ===================== */
+#loading-screen {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+#loading-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-content {
+  text-align: center;
+  position: relative;
+}
+
+.loader-ring {
+  width: 100px;
+  height: 100px;
+  border: 3px solid rgba(183, 139, 99, 0.2);
+  border-top-color: var(--coklat-susu);
+  border-radius: 50%;
+  animation: spin 1.2s linear infinite;
+  margin: 0 auto 24px;
+}
+
+.loader-icon {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 28px;
+  color: var(--coklat-muda);
+  animation: pulse-heart 1.2s ease-in-out infinite;
+}
+
+.loader-text {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--coklat-susu);
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+.loader-bar {
+  width: 200px;
+  height: 2px;
+  background: rgba(183, 139, 99, 0.2);
+  border-radius: 2px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.loader-bar-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--coklat-susu), var(--coklat-muda));
+  border-radius: 2px;
+  animation: load-bar 2s ease-in-out forwards;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@keyframes pulse-heart {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.15); }
+}
+
+@keyframes load-bar {
+  0% { width: 0%; }
+  50% { width: 70%; }
+  100% { width: 100%; }
+}
+
+/* ===================== SECTION BASE ===================== */
+.section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll;
+  overflow: hidden;
+}
+
+.section-bg-img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: var(--overlay);
+  z-index: 1;
+}
+
+#groom .overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.35) 0%,
+    rgba(0,0,0,0.65) 50%,
+    rgba(0,0,0,0.85) 100%
+  );
+}
+
+#bride .overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.15) 0%,
+    rgba(0,0,0,0.45) 50%,
+    rgba(0,0,0,0.75) 100%
+  );
+}
+
+.section-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+}
+
+.section-label {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: var(--coklat-muda);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  color: var(--coklat-susu);
+  margin-bottom: 40px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+/* ===================== SECTION BACKGROUNDS ===================== */
+#opening { background-image: url('../images/aya1.JPG'); }
+#bride-groom { background-image: url('../images/aya3.jpg'); background-size: 120%; background-position: center 20%; }
+
+#groom { background-image: url('../images/ayul.jpg'); background-size: cover; background-position: center; }
+#bride { background-image: url('../images/ayul.jpg'); background-size: cover; background-position: center; }
+#love-story { background-image: url('../images/ayastori.JPEG'); background-size: cover; background-position: 45% center; }
+#event { background-image: url('../images/ayul.jpg'); background-size: cover; background-position: 47% center; }
+#countdown { background-image: url('../images/ayacount.JPG'); background-size: cover; background-position: center; }
+#gallery { background-image: url('../images/ayul.jpg'); background-position: 50% 60%; }
+#gift { background-image: url('../images/ayagift.PNG'); background-size: cover; background-position: center; }
+#rsvp { background-image: url('../images/ayulia.JPEG'); }
+#thank-you { background-image: url('../images/bunga.JPEG'); }
+
+/* ===================== NAV DOTS ===================== */
+.nav-dots {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9998;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nav-dot {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--coklat-susu);
+  background: transparent;
+  transition: var(--transition);
+  position: relative;
+}
+
+.nav-dot span {
+  display: none;
+}
+
+.nav-dot.active {
+  background: var(--coklat-susu);
+  box-shadow: 0 0 12px rgba(183, 139, 99, 0.5);
+  transform: scale(1.2);
+}
+
+.nav-dot:hover {
+  background: var(--coklat-muda);
+  transform: scale(1.3);
+}
+
+/* ===================== MUSIC BUTTON ===================== */
+.music-btn {
+  position: fixed;
+  left: 24px;
+  bottom: 24px;
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: rgba(26, 20, 16, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(183, 139, 99, 0.3);
+  border-radius: 50px;
+  color: var(--coklat-susu);
+  font-size: 0.85rem;
+  transition: var(--transition);
+}
+
+.music-btn:hover {
+  background: var(--coklat-susu);
+  color: var(--white);
+}
+
+.music-btn i {
+  font-size: 1.1rem;
+  animation: none;
+}
+
+.music-btn.playing i {
+  animation: spin-music 3s linear infinite;
+}
+
+@keyframes spin-music {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ===================== BACK TO TOP ===================== */
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 9998;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(26, 20, 16, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(183, 139, 99, 0.3);
+  color: var(--coklat-susu);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: var(--coklat-susu);
+  color: var(--white);
+}
+
+/* ===================== BUTTONS ===================== */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 40px;
+  background: linear-gradient(135deg, var(--coklat-susu), var(--coklat-muda));
+  color: var(--white);
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  letter-spacing: 1px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transition: left 0.6s ease;
+}
+
+.btn-primary:hover::before { left: 100%; }
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(183, 139, 99, 0.4);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: transparent;
+  color: var(--coklat-muda);
+  border: 1px solid var(--coklat-susu);
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 400;
+  font-family: var(--font-sans);
+  transition: var(--transition);
+}
+
+.btn-secondary:hover {
+  background: var(--coklat-susu);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* ===================== SECTION 1: OPENING ===================== */
+.opening-content {
+  max-width: 700px;
+}
+
+.opening-subtitle {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: var(--coklat-muda);
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.opening-title {
+  font-family: var(--font-heading);
+  font-size: 4.5rem;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.name-groom { color: var(--gold); }
+.ampersand {
+  font-family: var(--font-heading);
+  color: var(--gold);
+  font-size: 3rem;
+  display: block;
+  line-height: 1;
+  margin: 4px 0;
+}
+.name-bride { color: var(--gold); }
+
+.opening-divider {
+  font-size: 1.2rem;
+  color: var(--coklat-susu);
+  margin-bottom: 20px;
+}
+
+.opening-guest {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--cream);
+  margin-bottom: 12px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+.guest-name {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: var(--gold);
+  display: inline-block;
+  margin-top: 4px;
+}
+
+/* ===================== SECTION 2: SAMBUTAN ===================== */
+.ornament-top, .ornament-bottom {
+  font-size: 2rem;
+  color: var(--coklat-susu);
+  margin: 20px 0;
+  position: relative;
+}
+
+.ornament-top::before, .ornament-top::after,
+.ornament-bottom::before, .ornament-bottom::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 80px;
+  height: 1px;
+  background: rgba(183, 139, 99, 0.4);
+}
+
+.ornament-top::before { right: calc(50% + 40px); }
+.ornament-top::after { left: calc(50% + 40px); }
+.ornament-bottom::before { right: calc(50% + 40px); }
+.ornament-bottom::after { left: calc(50% + 40px); }
+
+.ornament-top i, .ornament-bottom i {
+  font-style: normal;
+}
+
+.salam {
+  font-family: var(--font-body);
+  font-size: 1.6rem;
+  color: var(--coklat-susu);
+  line-height: 1.6;
+  margin-bottom: 24px;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.divider-line {
+  width: 60px;
+  height: 2px;
+  background: var(--coklat-susu);
+  margin: 24px auto;
+  border-radius: 2px;
+}
+
+.sambutan-text {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: var(--cream);
+  line-height: 2;
+  margin-bottom: 32px;
+}
+
+.ayat-box {
+  background: rgba(26, 20, 16, 0.40);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin-top: 16px;
+}
+
+.ayat-arab {
+  font-family: 'Traditional Arabic', serif;
+  font-size: 1.4rem;
+  color: var(--coklat-muda);
+  line-height: 2;
+  margin-bottom: 16px;
+  direction: rtl;
+}
+
+.ayat-arti {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--coklat-muda);
+  font-style: italic;
+  line-height: 1.8;
+}
+
+/* ===================== SECTION 3: BRIDE & GROOM ===================== */
+.couple-photo-frame {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  border: 4px solid var(--coklat-susu);
+  padding: 10px;
+  margin: 0 auto 32px;
+}
+
+.couple-photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: var(--coklat-susu);
+  overflow: hidden;
+}
+
+.couple-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.couple-intro {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  color: var(--cream);
+  font-style: italic;
+  margin-bottom: 32px;
+  line-height: 1.8;
+}
+
+.couple-names {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.couple-name-item {
+  padding: 20px;
+}
+
+.name-full {
+  font-family: var(--font-heading);
+  font-size: 2.4rem;
+  color: var(--gold);
+  margin-bottom: 6px;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.5), 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.name-parent {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--coklat-muda);
+  font-weight: 300;
+}
+
+.ampersand-large {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  color: var(--gold);
+  line-height: 1;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.5), 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* ===================== SECTION 4 & 5: PERSON ===================== */
+.person-card {
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.person-photo {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 3px solid var(--coklat-susu);
+  padding: 6px;
+  margin: 0 auto 24px;
+}
+
+.person-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  color: var(--coklat-susu);
+  overflow: hidden;
+}
+
+.person-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.person-name {
+  font-family: var(--font-heading);
+  font-size: 2.4rem;
+  color: var(--gold);
+  margin-bottom: 6px;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.5), 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.person-details {
+  margin-top: 180px;
+}
+
+.person-details p {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--coklat-muda);
+  font-weight: 300;
+}
+
+.person-details i {
+  color: var(--coklat-susu);
+  margin-right: 8px;
+}
+
+.person-parent {
+  color: var(--coklat-muda) !important;
+  margin-top: 4px;
+}
+
+.person-instagram {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--coklat-muda);
+  padding: 10px 24px;
+  border-radius: 50px;
+  color: var(--white);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 400;
+  transition: var(--transition);
+}
+
+.person-instagram:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(253, 29, 29, 0.35);
+}
+
+/* ===================== SECTION 6: LOVE STORY ===================== */
+.timeline {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 30px;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, var(--coklat-susu), transparent);
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 80px;
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-icon {
+  position: absolute;
+  left: 18px;
+  top: 10px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--coklat-susu);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  color: var(--white);
+  z-index: 2;
+  box-shadow: 0 0 0 4px rgba(183, 139, 99, 0.2);
+}
+
+.timeline-content {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  transition: var(--transition);
+}
+
+.timeline-content:hover {
+  background: rgba(183, 139, 99, 0.14);
+  transform: translateX(4px);
+}
+
+.timeline-photo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: var(--coklat-muda);
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.timeline-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.timeline-content h3 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--coklat-susu);
+  margin-bottom: 4px;
+  font-weight: 400;
+}
+
+.timeline-date {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--coklat-muda);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.timeline-content p {
+  font-family: var(--font-sans);
+  font-size: 0.87rem;
+  color: var(--cream);
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+/* ===================== SECTION 7: EVENT ===================== */
+.event-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.event-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.event-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--coklat-susu);
+}
+
+.event-card-header {
+  margin-bottom: 20px;
+}
+
+.event-card-header i {
+  font-size: 2rem;
+  color: var(--coklat-susu);
+  margin-bottom: 12px;
+  display: block;
+}
+
+.event-card-header h3 {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: var(--coklat-susu);
+  font-weight: 400;
+}
+
+.event-card-body p {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  color: var(--cream);
+  margin-bottom: 8px;
+  font-weight: 300;
+}
+
+.event-card-body i {
+  color: var(--coklat-susu);
+  width: 20px;
+  margin-right: 6px;
+}
+
+.event-address {
+  color: var(--coklat-muda) !important;
+  font-size: 0.82rem !important;
+}
+
+.event-card .btn-secondary {
+  margin-top: 20px;
+}
+
+/* ===================== SECTION 8: COUNTDOWN ===================== */
+.countdown-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.countdown-box {
+  background: var(--bg-color);
+  padding: 20px 24px;
+  min-width: 90px;
+  text-align: center;
+}
+
+.countdown-number {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  color: var(--coklat-susu);
+  display: block;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.countdown-label {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--coklat-muda);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.countdown-sep {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--coklat-muda);
+  margin-top: -20px;
+}
+
+.countdown-date-text {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  color: var(--coklat-susu);
+  opacity: 0.8;
+}
+
+/* ===================== SECTION 9: GALLERY ===================== */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 1;
+  transition: var(--transition);
+}
+
+.gallery-item:nth-child(2) {
+  grid-row: span 2;
+  aspect-ratio: 0.5;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+.gallery-item::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0);
+  transition: var(--transition);
+}
+
+.gallery-item:hover::after {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.92);
+  z-index: 99999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox-content {
+  max-width: 80vw;
+  max-height: 80vh;
+  position: relative;
+}
+
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2.5rem;
+  color: var(--cream);
+  cursor: pointer;
+  z-index: 2;
+  transition: var(--transition);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-close:hover {
+  color: var(--coklat-susu);
+  transform: rotate(90deg);
+}
+
+.lightbox-prev, .lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: var(--cream);
+  cursor: pointer;
+  z-index: 2;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.lightbox-prev { left: 20px; }
+.lightbox-next { right: 20px; }
+
+.lightbox-prev:hover, .lightbox-next:hover {
+  background: var(--coklat-susu);
+  color: var(--white);
+}
+
+/* ===================== SECTION 10: GIFT ===================== */
+.gift-intro {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--cream);
+  line-height: 2;
+  margin-bottom: 28px;
+  font-style: italic;
+}
+
+.gift-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 600px;
+  margin: 0 auto 28px;
+}
+
+.gift-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.gift-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.gift-card-header {
+  margin-bottom: 16px;
+}
+
+.gift-card-header i {
+  font-size: 2rem;
+  color: var(--coklat-susu);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.gift-card-header h3 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  color: var(--coklat-susu);
+  font-weight: 400;
+}
+
+.gift-number {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  color: var(--cream);
+  font-weight: 500;
+  letter-spacing: 2px;
+  margin-bottom: 4px;
+}
+
+.gift-name {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--coklat-muda);
+  margin-bottom: 16px;
+}
+
+.gift-address-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 24px 32px;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.gift-address-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.gift-address-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--coklat-susu);
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+.gift-address-card i {
+  margin-right: 8px;
+}
+
+.gift-address-card p {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  color: var(--cream);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ===================== SECTION 11: RSVP ===================== */
+.rsvp-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.rsvp-form {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  margin-bottom: 32px;
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 14px 18px;
+  background: rgba(26, 20, 16, 0.5);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  color: var(--white);
+  font-size: 0.9rem;
+  font-family: var(--font-sans);
+  transition: var(--transition);
+  outline: none;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--coklat-susu);
+  background: rgba(26, 20, 16, 0.7);
+  box-shadow: 0 0 0 3px rgba(196, 149, 106, 0.15);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(248, 245, 240, 0.4);
+}
+
+.form-group select {
+  color: var(--cream);
+  appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23B78B63' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+}
+
+.form-group select option {
+  background: var(--dark);
+  color: var(--cream);
+}
+
+.rsvp-form .btn-primary {
+  width: 100%;
+  justify-content: center;
+}
+
+.messages-section {
+  text-align: left;
+}
+
+.messages-title {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  color: var(--coklat-susu);
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.messages-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.message-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.message-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--coklat-susu), var(--coklat-muda));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--white);
+  flex-shrink: 0;
+}
+
+.message-body {
+  flex: 1;
+}
+
+.message-name {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--coklat-susu);
+  margin-bottom: 2px;
+}
+
+.message-attendance {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--coklat-muda);
+  margin-bottom: 4px;
+}
+
+.message-attendance i {
+  margin-right: 4px;
+}
+
+.message-text {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--cream);
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.message-date {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  color: rgba(248, 245, 240, 0.3);
+  margin-top: 6px;
+}
+
+.messages-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.pagination-btn {
+  padding: 8px 14px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 6px;
+  color: var(--coklat-muda);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  transition: var(--transition);
+}
+
+.pagination-btn:hover,
+.pagination-btn.active {
+  background: var(--coklat-susu);
+  color: var(--white);
+}
+
+/* ===================== SECTION 12: THANK YOU ===================== */
+#thank-you {
+  position: relative;
+}
+
+#petals-container {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.thankyou-body {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.thankyou-intro {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--cream);
+  line-height: 2;
+  font-style: italic;
+}
+
+.thankyou-salam {
+  font-family: var(--font-body);
+  font-size: 1.4rem;
+  color: var(--coklat-susu);
+  font-weight: 600;
+  font-style: italic;
+  margin-bottom: 32px;
+}
+
+.thankyou-names {
+  margin-top: 40px;
+}
+
+.thankyou-groom, .thankyou-bride {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  color: var(--gold);
+  font-weight: 400;
+}
+
+.thankyou-amp {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: var(--gold);
+  display: block;
+  margin: 4px 0;
+}
+
+/* ===================== PETAL ANIMATION ===================== */
+.petal {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: var(--coklat-muda);
+  border-radius: 50% 0 50% 0;
+  opacity: 0;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    opacity: 0;
+    transform: translateY(-10vh) rotate(0deg);
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(110vh) rotate(720deg);
+  }
+}
+
+/* ===================== READING PROGRESS BAR ===================== */
+#progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--coklat-susu), var(--coklat-muda), var(--coklat-susu));
+  z-index: 100000;
+  transition: width 0.1s ease;
+  box-shadow: 0 0 12px rgba(212, 163, 115, 0.5);
+}
+
+/* ===================== TOAST NOTIFICATION ===================== */
+.toast-container {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100001;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.toast {
+  padding: 14px 28px;
+  background: rgba(26, 20, 16, 0.9);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--coklat-susu);
+  border-radius: 12px;
+  color: var(--cream);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: toastIn 0.4s ease forwards, toastOut 0.4s ease 2.6s forwards;
+  pointer-events: auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.toast i {
+  color: var(--coklat-susu);
+  font-size: 1.1rem;
+}
+
+@keyframes toastIn {
+  from { opacity: 0; transform: translateY(-20px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes toastOut {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to { opacity: 0; transform: translateY(-20px) scale(0.95); }
+}
+
+/* ===================== FLOATING PARTICLES ===================== */
+.particle {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+}
+
+.particle--heart {
+  font-size: 14px;
+  color: var(--coklat-muda);
+  animation: particleFloat 8s ease-in-out infinite;
+}
+
+.particle--dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--coklat-susu);
+  animation: particleFloat 10s ease-in-out infinite;
+}
+
+@keyframes particleFloat {
+  0% { opacity: 0; transform: translateY(100vh) rotate(0deg) scale(0.5); }
+  10% { opacity: 0.5; }
+  50% { opacity: 0.3; }
+  90% { opacity: 0.1; }
+  100% { opacity: 0; transform: translateY(-10vh) rotate(360deg) scale(1); }
+}
+
+/* ===================== TIMELINE EXPAND ===================== */
+.timeline-content {
+  cursor: pointer;
+}
+
+.timeline-detail {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.4s ease, margin 0.4s ease;
+  opacity: 0;
+  margin-top: 0;
+}
+
+.timeline-detail.open {
+  max-height: 200px;
+  opacity: 1;
+  margin-top: 12px;
+}
+
+.timeline-detail p {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--coklat-muda);
+  line-height: 1.7;
+  font-style: italic;
+  padding-top: 12px;
+  border-top: 1px solid var(--glass-border);
+}
+
+/* ===================== SPARKLE HOVER ===================== */
+@keyframes sparkle {
+  0% { box-shadow: 0 0 0 0 rgba(212, 163, 115, 0.4); }
+  50% { box-shadow: 0 0 20px 6px rgba(212, 163, 115, 0.15); }
+  100% { box-shadow: 0 0 0 0 rgba(212, 163, 115, 0); }
+}
+
+.event-card:hover {
+  animation: sparkle 1.2s ease infinite;
+}
+
+/* ===================== GALLERY ZOOM LENS ===================== */
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-item .zoom-lens {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(212, 163, 115, 0.2);
+  backdrop-filter: blur(4px);
+  border: 2px solid var(--coklat-susu);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.2rem;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.gallery-item:hover .zoom-lens {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* ===================== NAV GLOW ===================== */
+.nav-dot.active {
+  box-shadow: 0 0 16px rgba(212, 163, 115, 0.6), 0 0 32px rgba(212, 163, 115, 0.2);
+}
+
+/* ===================== BUTTON RIPPLE ===================== */
+.btn-primary, .btn-secondary {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(0);
+  animation: rippleAnim 0.6s ease-out;
+  pointer-events: none;
+}
+
+@keyframes rippleAnim {
+  to { transform: scale(4); opacity: 0; }
+}
+
+/* ===================== SECTION REVEAL ===================== */
+.section {
+  transition: transform 0.6s ease;
+}
+
+/* ===================== COUNTDOWN PULSE ===================== */
+.countdown-box {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.countdown-box:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 12px 32px rgba(212, 163, 115, 0.2);
+  border-color: var(--coklat-susu);
+}
+
+/* ===================== OPENING NAME TYPING ===================== */
+.typing-cursor::after {
+  content: '|';
+  animation: blink 0.8s step-end infinite;
+  color: var(--coklat-susu);
+  font-weight: 100;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* ===================== FORM FOCUS GLOW ===================== */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  box-shadow: 0 0 0 3px rgba(212, 163, 115, 0.15), 0 0 20px rgba(212, 163, 115, 0.05);
+}
+
+/* ===================== INTERACTIVE CARD TILT ===================== */
+.event-card, .gift-card, .gift-address-card {
+  perspective: 1000px;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 1024px) {
+  .section-title { font-size: 2.6rem; }
+  .opening-title { font-size: 3.8rem; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 20px;
+
+  }
+
+  .section-title { font-size: 2.2rem; }
+  .section-label { font-size: 0.75rem; letter-spacing: 3px; }
+
+  .opening-title { font-size: 2.8rem; }
+  .opening-subtitle { font-size: 1.3rem; }
+  .ampersand { font-size: 2rem; }
+  .guest-name { font-size: 1.4rem; }
+
+  .nav-dots { right: 10px; gap: 10px; }
+  .nav-dot { width: 10px; height: 10px; }
+
+  .music-btn {
+    left: 12px;
+    bottom: 12px;
+    padding: 10px 16px;
+    font-size: 0.78rem;
+  }
+  .music-btn span { display: none; }
+
+  .back-to-top {
+    right: 12px;
+    bottom: 12px;
+    width: 38px;
+    height: 38px;
+    font-size: 0.9rem;
+  }
+
+  .event-cards { grid-template-columns: 1fr; gap: 16px; }
+  .gift-cards { grid-template-columns: 1fr; gap: 16px; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+
+  .countdown-container { gap: 8px; }
+  .countdown-box { padding: 14px 16px; min-width: 70px; }
+  .countdown-number { font-size: 2rem; }
+  .countdown-sep { font-size: 1.5rem; }
+
+  .salam { font-size: 1.3rem; }
+  .sambutan-text { font-size: 0.95rem; }
+  .ayat-arab { font-size: 1.1rem; }
+  .ayat-box { padding: 20px; }
+
+  .couple-photo-frame { width: 170px; height: 170px; }
+  .name-full { font-size: 1.6rem; }
+  .person-name { font-size: 2.2rem; }
+
+  .timeline::before { left: 20px; }
+  .timeline-item { padding-left: 56px; }
+  .timeline-icon { left: 10px; width: 22px; height: 22px; font-size: 0.6rem; }
+
+  .person-photo { width: 150px; height: 150px; }
+
+  .thankyou-groom, .thankyou-bride { font-size: 2.2rem; }
+
+  .rsvp-form { padding: 24px; }
+
+  .lightbox-prev, .lightbox-next { width: 40px; height: 40px; font-size: 1.2rem; }
+  .lightbox-prev { left: 10px; }
+  .lightbox-next { right: 10px; }
+}
+
+@media (max-width: 480px) {
+  .section { padding: 50px 16px; }
+
+  .section-title { font-size: 1.8rem; }
+  .opening-title { font-size: 2.2rem; }
+  .opening-subtitle { font-size: 1.1rem; }
+  .ampersand { font-size: 1.5rem; }
+  .guest-name { font-size: 1.2rem; }
+  .btn-primary { padding: 14px 28px; font-size: 0.9rem; }
+
+  .nav-dots { display: none; }
+  .music-btn { left: 10px; bottom: 10px; }
+
+  .gallery-grid { grid-template-columns: 1fr 1fr; gap: 6px; }
+  .gallery-item:nth-child(2) { grid-row: span 1; aspect-ratio: 1; }
+
+  .countdown-box { min-width: 60px; padding: 10px 12px; }
+  .countdown-number { font-size: 1.6rem; }
+  .countdown-label { font-size: 0.65rem; }
+
+  .lightbox-content { max-width: 95vw; }
+
+  .event-card { padding: 24px 18px; }
+  .gift-card { padding: 20px 16px; }
+}

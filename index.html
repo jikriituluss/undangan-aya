@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Wedding</title>
+  <meta name="description" content="Undangan Pernikahan">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div class="loader-content">
+      <div class="loader-ring"></div>
+      <div class="loader-icon">
+        <i class="fas fa-heart"></i>
+      </div>
+      <p class="loader-text">The Wedding</p>
+      <div class="loader-bar">
+        <div class="loader-bar-fill"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Navigation -->
+  <nav id="nav-dots" class="nav-dots">
+    <a href="#opening" class="nav-dot active" data-section="0" title="Opening"><span></span></a>
+    <a href="#sambutan" class="nav-dot" data-section="1" title="Sambutan"><span></span></a>
+    <a href="#bride-groom" class="nav-dot" data-section="2" title="Bride & Groom"><span></span></a>
+    <a href="#groom" class="nav-dot" data-section="3" title="Pengantin Pria"><span></span></a>
+    <a href="#bride" class="nav-dot" data-section="4" title="Pengantin Wanita"><span></span></a>
+    <a href="#love-story" class="nav-dot" data-section="5" title="Love Story"><span></span></a>
+    <a href="#event" class="nav-dot" data-section="6" title="Event"><span></span></a>
+    <a href="#countdown" class="nav-dot" data-section="7" title="Countdown"><span></span></a>
+    <a href="#gallery" class="nav-dot" data-section="8" title="Gallery"><span></span></a>
+    <a href="#gift" class="nav-dot" data-section="9" title="Wedding Gift"><span></span></a>
+    <a href="#rsvp" class="nav-dot" data-section="10" title="RSVP"><span></span></a>
+    <a href="#thank-you" class="nav-dot" data-section="11" title="Thank You"><span></span></a>
+  </nav>
+
+  <!-- Floating Music Button -->
+  <button id="music-btn" class="music-btn" title="Play/Pause Musik">
+    <i class="fas fa-music"></i>
+    <span id="music-status">Putar Musik</span>
+  </button>
+
+  <!-- Back to Top -->
+  <button id="back-to-top" class="back-to-top" title="Kembali ke atas">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- ==================== SECTION 1: OPENING ==================== -->
+  <section id="opening" class="section" data-index="0">
+    <div class="overlay"></div>
+    <div class="section-content opening-content">
+      <p class="opening-subtitle" data-aos="fade-down" data-aos-duration="1000">The Wedding Of</p>
+      <h1 class="opening-title" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="300">
+        <span class="name-groom"></span>
+        <span class="ampersand">&amp;</span>
+        <span class="name-bride"></span>
+      </h1>
+      <div class="opening-divider" data-aos="fade-in" data-aos-duration="800" data-aos-delay="600">
+        <i class="fas fa-heart"></i>
+      </div>
+      <p class="opening-guest" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="900">
+        Kepada Yth.<br>
+        <span class="guest-name" id="guest-name-display">Bapak/Ibu/Saudara/i</span>
+      </p>
+      <button id="open-btn" class="btn-primary" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1200">
+        <span>Buka Undangan</span>
+        <i class="fas fa-envelope-open"></i>
+      </button>
+    </div>
+  </section>
+
+  <!-- ==================== SECTION 2: SAMBUTAN ==================== -->
+  <section id="sambutan" class="section" data-index="1">
+    <div class="overlay"></div>
+    <img src="images/aya2.JPEG" alt="" class="section-bg-img" style="object-position: center bottom;">
+    <div class="section-content">
+      <div class="ornament-top" data-aos="fade-in" data-aos-duration="1000">
+        <i class="fas fa-heart"></i>
+      </div>
+      <div class="sambutan-body" data-aos="fade-up" data-aos-duration="1200">
+        <p class="salam">Assalamu'alaikum Warahmatullahi Wabarakatuh</p>
+        <div class="divider-line"></div>
+        <p class="sambutan-text">
+          Dengan memohon rahmat dan ridho Allah SWT,<br>
+          kami bermaksud mengundang Bapak/Ibu/Saudara/i<br>
+          untuk hadir pada acara pernikahan kami.
+        </p>
+        <div class="ayat-box">
+          <p class="ayat-arab">
+            وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً
+          </p>
+          <p class="ayat-arti">"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih dan sayang." (QS. Ar-Rum: 21)</p>
+        </div>
+      </div>
+      <div class="ornament-bottom" data-aos="fade-in" data-aos-duration="1000">
+        <i class="fas fa-heart"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SECTION 3: BRIDE & GROOM ==================== -->
+  <section id="bride-groom" class="section" data-index="2">
+    <div class="overlay"></div>
+    <div class="section-content">
+      <p class="section-label" data-aos="fade-down" data-aos-duration="800">Bride &amp; Groom</p>
+      <h2 class="section-title" data-aos="zoom-in" data-aos-duration="1000">Our Story Begins</h2>
+      <p class="couple-intro" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+        Dengan penuh rasa syukur,<br>
+        kami mempersembahkan kedua mempelai
+      </p>
+      <div class="couple-names" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+        <div class="couple-name-item">
+          <p class="name-full"></p>
+          <p class="name-parent"></p>
+        </div>
+        <div class="ampersand-large">&amp;</div>
+        <div class="couple-name-item">
+          <p class="name-full"></p>
+          <p class="name-parent"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ 
+
+  <!-- ==================== SECTION 6: LOVE STORY ==================== -->
+  <section id="love-story" class="section" data-index="5">
+    <div class="overlay"></div>
+    <div class="section-content">
+      <p class="section-label" data-aos="fade-down" data-aos-duration="800">Our Love Story</p>
+      <h2 class="section-title" data-aos="zoom-in" data-aos-duration="1000">Perjalanan Cinta Kami</h2>
+      <div class="timeline" id="timeline"></div>
+    </div>
+  </section>
+
+  <!-- ==================== SECTION 7: EVENT ==================== -->
+  <section id="event" class="section" data-index="6">
+    <div class="overlay"></div>
+    <div class="section-content">
+      <p class="section-label" data-aos="fade-down" data-aos-duration="800">Wedding Event</p>
+      <h2 class="section-title" data-aos="zoom-in" data-aos-duration="1000">Acara Pernikahan</h2>
+      <div class="event-cards">
+        <div class="event-card" data-aos="fade-right" data-aos-duration="1000">
+          <div class="event-card-header">
+            <i class="fas fa-ring"></i>
+            <h3>Akad Nikah</h3>
+          </div>
+          <div class="event-card-body">
+            <p><i class="fas fa-calendar-alt"></i> Sabtu, 15 Agustus 2026</p>
+            <p><i class="fas fa-clock"></i> 09.00 - Selesai WIB</p>
+            <p><i class="fas fa-map-marker-alt"></i> Gedung CU Pancur Kasih Pontianak</p>
+            <p class="event-address">Jl. 28 Oktober No.87, Siantan Hulu, Kec. Pontianak Utara, Kota Pontianak, Kalimantan Barat 78241</p>
+          </div>
+          <a href="https://share.google/qcCSsoDQzdCyAxZn2" target="_blank" class="btn-secondary">
+            <i class="fas fa-map-marked-alt"></i> Lihat Lokasi
+          </a>
+        </div>
+        <div class="event-card" data-aos="fade-left" data-aos-duration="1000">
+          <div class="event-card-header">
+            <i class="fas fa-glass-cheers"></i>
+            <h3>Resepsi</h3>
+          </div>
+          <div class="event-card-body">
+            <p><i class="fas fa-calendar-alt"></i> Sabtu, 15 Agustus 2026</p>
+            <p><i class="fas fa-clock"></i> 13.00 - 18.00 WIB</p>
+            <p><i class="fas fa-map-marker-alt"></i> Gedung CU Pancur Kasih Pontianak</p>
+            <p class="event-address">Jl. 28 Oktober No.87, Siantan Hulu, Kec. Pontianak Utara, Kota Pontianak, Kalimantan Barat 78241</p>
+          </div>
+          <a href="https://share.google/qcCSsoDQzdCyAxZn2" target="_blank" class="btn-secondary">
+            <i class="fas fa-map-marked-alt"></i> Lihat Lokasi
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SECTION 8: COUNTDOWN ==================== -->
+  <section id="countdown" class="section" data-index="7">
+    <div class="overlay"></div>
+    <div class="section-content">
+      <p class="section-label" data-aos="fade-down" data-aos-duration="800">Counting Down</p>
+      <h2 class="section-title" data-aos="zoom-in" data-aos-duration="1000">Menuju Hari Bahagia</h2>
+      <div class="countdown-container" data-aos="fade-up" data-aos-duration="1200">
+        <div class="countdown-box">
+          <span class="countdown-number" id="count-days">00</span>
+          <span class="countdown-label">Hari</span>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-box">
+          <span class="countdown-number" id="count-hours">00</span>
+          <span class="countdown-label">Jam</span>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-box">
+          <span class="countdown-number" id="count-minutes">00</span>
+          <span class="countdown-label">Menit</span>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-box">
+          <span class="countdown-number" id="count-seconds">00</span>
+          <span class="countdown-label">Detik</span>
+        </div>
+      </div>
+      <p class="countdown-date-text" data-aos="fade-in" data-aos-duration="800" data-aos-delay="400">15 Agustus 2026</p>
+    </div>
+  </section>
+
+  <!-- ==================== SECTION 9: GALLERY ==================== -->
+  <section id="gallery" class="section" data-index="8">
+    <div class="overlay"></div>
+    <div class="section-content">
+      <p class="section-label" data-aos="fade-down" data-aos-duration="800">Gallery</p>
+      <h2 class="section-title" data-aos="zoom-in" data-aos-duration="1000">Momen Terindah</h2>
+      <div class="gallery-grid" id="gallery-grid">
+      </div>
+    </div>
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+      <span class="lightbox-close">&times;</span>
+      <span class="lightbox-prev"><i class="fas fa-chevron-left"></i></span>
+      <span class="lightbox-next"><i class="fas fa-chevron-right"></i></span>
+      <div class="lightbox-content">
+        <img id="lightbox-img" src="" alt="Gallery Photo">
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SECTION 10: WEDDING GIFT ==================== -->
+  <section id="gift" class="section" data-index="9">
+    <div class="overlay"></div>
+    <div class="section-content">
+      <p class="section-label" data-aos="fade-down" data-aos-duration="800">Wedding Gift</p>
+      <h2 class="section-title" data-aos="zoom-in" data-aos-duration="1000">Tanda Kasih</h2>
+      <p class="gift-intro" data-aos="fade-up" data-aos-duration="1000">
+        Doa restu Anda merupakan hadiah terindah.<br>
+        Namun apabila ingin memberikan tanda kasih,<br>
+        dapat melalui rekening berikut.
+      </p>
+      <div class="gift-cards" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+        <div class="gift-card">
+          <div class="gift-card-header">
+            <i class="fas fa-university"></i>
+            <h3>BCA</h3>
+          </div>
+          <p class="gift-number">1234567890</p>
+          <p class="gift-name">Rizky Pratama</p>
+          <button class="btn-secondary copy-btn" data-account="1234567890">
+            <i class="fas fa-copy"></i> Copy Nomor Rekening
+          </button>
+        </div>
+        <div class="gift-card">
+          <div class="gift-card-header">
+            <i class="fas fa-university"></i>
+            <h3>Mandiri</h3>
+          </div>
+          <p class="gift-number">1234567890123</p>
+          <p class="gift-name">Alya Putriani</p>
+          <button class="btn-secondary copy-btn" data-account="1234567890123">
+            <i class="fas fa-copy"></i> Copy Nomor Rekening
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SECTION 11: RSVP & UCAPAN ==================== -->
+  <section id="rsvp" class="section" data-index="10">
+    <div class="overlay"></div>
+    <div class="section-content">
+      <p class="section-label" data-aos="fade-down" data-aos-duration="800">RSVP &amp; Ucapan</p>
+      <h2 class="section-title" data-aos="zoom-in" data-aos-duration="1000">Doa &amp; Ucapan</h2>
+      <div class="rsvp-container">
+        <form id="rsvp-form" class="rsvp-form" data-aos="fade-up" data-aos-duration="1000">
+          <div class="form-group">
+            <input type="text" id="form-name" name="name" placeholder="Nama Lengkap" required>
+          </div>
+          <div class="form-group">
+            <select id="form-attendance" name="attendance" required>
+              <option value="">Konfirmasi Kehadiran</option>
+              <option value="Hadir">Hadir</option>
+              <option value="Tidak Hadir">Tidak Hadir</option>
+              <option value="Masih Ragu">Masih Ragu</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <textarea id="form-message" name="message" placeholder="Ucapan dan Doa" rows="4"></textarea>
+          </div>
+          <button type="submit" class="btn-primary">
+            <i class="fas fa-paper-plane"></i> Kirim Ucapan
+          </button>
+        </form>
+        <div class="messages-section" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+          <h3 class="messages-title"><i class="fas fa-comments"></i> Ucapan Tamu</h3>
+          <div id="messages-list" class="messages-list"></div>
+          <div id="messages-pagination" class="messages-pagination"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SECTION 12: THANK YOU ==================== -->
+  <section id="thank-you" class="section" data-index="11">
+    <div class="overlay"></div>
+    <div id="petals-container"></div>
+    <div class="section-content">
+      <p class="section-label" data-aos="fade-down" data-aos-duration="800">Terima Kasih</p>
+      <div class="thankyou-body" data-aos="fade-up" data-aos-duration="1200">
+        <p class="thankyou-intro">Merupakan suatu kehormatan dan kebahagiaan<br>
+        bagi kami apabila Bapak/Ibu/Saudara/i<br>
+        berkenan hadir serta memberikan doa restu.</p>
+        <div class="divider-line"></div>
+        <p class="thankyou-salam">Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
+        <div class="thankyou-names">
+          <p class="thankyou-groom"></p>
+          <p class="thankyou-amp">&amp;</p>
+          <p class="thankyou-bride"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Audio Element -->
+  <audio id="wedding-music" loop preload="auto">
+    <source src="" type="audio/mpeg">
+  </audio>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+  <script>
+    firebase.initializeApp({
+      apiKey: "AIzaSyCa5ueCPOQk0OslLT2aA8HtowS9kEF9w2g",
+      authDomain: "undangan-aya.firebaseapp.com",
+      projectId: "undangan-aya",
+      storageBucket: "undangan-aya.firebasestorage.app",
+      messagingSenderId: "515537806863",
+      appId: "1:515537806863:web:2199979870267ad372a57a",
+      measurementId: "G-P3F0LRP2ZX"
+    });
+    var db = firebase.firestore();
+  </script>
+  <script src="config.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/music.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/countdown.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/rsvp.js"></script>
+</body>
+</html>
