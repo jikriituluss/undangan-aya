@@ -2,15 +2,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var GALLERY_IMAGES = [
     'images/aya3.jpg',
-    
     'images/aya1.JPG',
     'images/galeri.PNG',
     'images/ayacount.JPG',
     'images/ayastori.JPEG',
-    'images/ayagift.PNG',
+    'images/ayagift.png',
     'images/ayulia.JPEG',
     'images/ayam.jpg',
-    'images/aya2.jpeg',
+    'images/aya2.JPEG',
     'images/ayacouple.JPEG',
     'images/bunga.JPEG',
   ];

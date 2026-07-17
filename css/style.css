@@ -217,7 +217,7 @@ input, textarea, select { font-family: inherit; }
 #event { background-image: url('../images/ayul.jpg'); background-size: cover; background-position: 47% center; }
 #countdown { background-image: url('../images/ayacount.JPG'); background-size: cover; background-position: center; }
 #gallery { background-image: url('../images/ayul.jpg'); background-position: 50% 60%; }
-#gift { background-image: url('../images/ayagift.PNG'); background-size: cover; background-position: center; }
+#gift { background-image: url('../images/ayagift.png'); background-size: cover; background-position: center; }
 #rsvp { background-image: url('../images/ayulia.JPEG'); }
 #thank-you { background-image: url('../images/bunga.JPEG'); }
 
