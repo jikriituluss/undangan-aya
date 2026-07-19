@@ -92,7 +92,7 @@ const WEDDING = {
   music: {
     title: 'Marry You - Bruno Mars',
     youtubeId: 'lY5V4hSLWY8',
-    file: 'https://s3.ustatik.com/audio.com.audio/transcoding/31/17/1851605631321731-1851605631407091-1851605634587899.mp3?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=F0E8U41NBMMW3Y027UTJ%2F20260712%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20260712T132258Z&X-Amz-SignedHeaders=host&X-Amz-Expires=518400&X-Amz-Signature=848b7089695cb0bf887e9131027176a9e4835096ce87de775c6497590689b9dc'
+    file: 'audio/Bruno Mars - Marry You.mp3'
   },
   guestName: 'Bapak/Ibu/Saudara/i'
 };
