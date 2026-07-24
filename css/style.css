@@ -1366,7 +1366,8 @@ input, textarea, select { font-family: inherit; }
 .thankyou-credit {
   position: absolute;
   bottom: 20px;
-  right: 24px;
+  left: 50%;
+  transform: translateX(-50%);
   font-family: var(--font-body);
   font-size: 0.8rem;
   color: var(--cream);
