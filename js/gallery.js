@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
 
   var GALLERY_IMAGES = [
-    'images/ayim.jpg',
+    'images/ayim.PNG',
     'images/aya1.JPG',
     'images/galeri.PNG',
     'images/ayacount.JPG',
